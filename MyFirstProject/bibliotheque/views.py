@@ -14,3 +14,12 @@ def ajout(request):
     else :
         form = LivreForm() # création d'un formulaire vide
         return render(request,"bibliotheque/ajout.html",{"form" : form})
+
+
+def traitement(request):
+    lform = LivreForm(request.POST)
+    if lform.is_valid():
+        Livre = lform.save()
+        return render(request,"bibliotheque/affiche.html",{"Livre" : Livre})
+    else:
+        return render(request,"bibliotheque/ajout.html",{"form": lform})
