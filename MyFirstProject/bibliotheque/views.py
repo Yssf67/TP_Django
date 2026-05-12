@@ -23,3 +23,7 @@ def traitement(request):
         return render(request,"bibliotheque/affiche.html",{"Livre" : Livre})
     else:
         return render(request,"bibliotheque/ajout.html",{"form": lform})
+
+def read(request, id):
+    Livre = models.Livre.objects.get(pk=id) # méthode pour récupérer les données dans la base avec un id donnée
+    return render(request,"bibliotheque/affiche.html",{"Livre": Livre})
