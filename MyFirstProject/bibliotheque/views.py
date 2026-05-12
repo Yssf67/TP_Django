@@ -27,3 +27,9 @@ def traitement(request):
 def read(request, id):
     Livre = models.Livre.objects.get(pk=id) # méthode pour récupérer les données dans la base avec un id donnée
     return render(request,"bibliotheque/affiche.html",{"Livre": Livre})
+
+def update(request, id):
+    livre = Livre.objects.get(id=id)
+    lform = LivreForm(dictionnaire) # ou le dictionnaire est celui qui contient toutes les valeurs
+
+
