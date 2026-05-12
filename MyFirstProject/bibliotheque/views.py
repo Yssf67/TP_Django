@@ -29,7 +29,20 @@ def read(request, id):
     return render(request,"bibliotheque/affiche.html",{"Livre": Livre})
 
 def update(request, id):
-    livre = Livre.objects.get(id=id)
-    lform = LivreForm(dictionnaire) # ou le dictionnaire est celui qui contient toutes les valeurs
+    livre = LivreForm.objects.get(id=id)
 
+    if request.method == 'POST':
+        form = LivreForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return render(request,"bibliotheque/affiche.html",{"" : form})
+    else :
+        dictionnaire = {
+                'titre': livre.titre,
+                'auteur': livre.auteur,
+                'date_parution': livre.date_parution,
+                'resume': livre.resume,}
+        lform = LivreForm(dictionnaire) # ou le dictionnaire est celui qui contient toutes les valeurs
+        return render(request, "bibliotheque/affiche.html", {"": form})
 
