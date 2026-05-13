@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>ajout d'un Livre</title>
+    <meta charset="UTF-8">
+    <title>Ajout d'un Livre</title>
 </head>
 <body>
-<p> vous avez ajouté le Livre suivant {{Livre}} {{Livre.id}} </p>
+<p>vous avez ajouté le Livre suivant {{ Livre }} {{ Livre.id }}</p>
+<p><a href="/bibliotheque/update/{{ Livre.id }}/">mettre à jour</a></p>
+<p><a href="/bibliotheque/delete/{{ Livre.id }}/">supprimer</a></p>
+<p><a href="/bibliotheque/">retour à la liste</a></p>
 </body>
 </html>

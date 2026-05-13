@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Mise à jour d'un Livre</title>
 </head>
 <body>
-
-<form method="post" action="/bibliotheque/traitementupdate/{{id}}">
-  {% csrf_token %}
-  {{ form.as_ul }}
-<input type="submit" value="envoyer␣les␣données"\>
+<form method="post" action="/bibliotheque/traitementupdate/{{ id }}">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="envoyer les données">
 </form>
-
 </body>
 </html>
