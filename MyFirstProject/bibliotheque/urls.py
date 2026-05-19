@@ -1,5 +1,5 @@
 from django.urls import path,include
-from . import views
+from . import views, categorie_views
 
 urlpatterns = [
     path("", views.index),
@@ -9,4 +9,5 @@ urlpatterns = [
     path("update/<int:id>/", views.update),
     path("traitementupdate/<int:id>", views.traitementupdate),
     path("delete/<int:id>/", views.delete),
+    #pages pour les categories
 ]
